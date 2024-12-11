@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import swal from "sweetalert";
 import Welcome, { Welcome2 } from "./components/Welcome";
 import axios from "axios";
 import NewsList from "./components/NewsList";
@@ -20,11 +21,14 @@ function App() {
       method: "get",
       url: "https://api.spaceflightnewsapi.net/v4/blogs/",
     })
-      .then(function (response) {
+      .then((response) => {
         setNews(response.data.results);
       })
       .catch((error) => {
-        console.log(error);
+        swal({
+          icon: "error",
+          title: error.message,
+        });
       })
       .finally(() => {
         setLoading(false);
