@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import Button, { Button2 } from "./components/Button";
 import Welcome, { Welcome2 } from "./components/Welcome";
 import axios from "axios";
@@ -6,15 +7,15 @@ import NewsList from "./components/NewsList";
 
 function App() {
   // state count
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   // state news
-  const [news, setNews] = React.useState([]);
+  const [news, setNews] = useState([]);
 
   // loading
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios({
       method: "get",
       url: "https://api.spaceflightnewsapi.net/v4/blogs/",
