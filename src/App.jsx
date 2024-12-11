@@ -5,19 +5,29 @@ import axios from "axios";
 import NewsList from "./components/NewsList";
 
 function App() {
+  // state count
   const [count, setCount] = React.useState(0);
 
   // state news
   const [news, setNews] = React.useState([]);
 
+  // loading
+  const [loading, setLoading] = React.useState(true);
+
   React.useEffect(() => {
     axios({
       method: "get",
       url: "https://api.spaceflightnewsapi.net/v4/blogs/",
-    }).then(function (response) {
-      console.log(response.data.results);
-      setNews(response.data.results);
-    });
+    })
+      .then(function (response) {
+        setNews(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -33,7 +43,11 @@ function App() {
         <Button count={count} setCount={setCount} />
         <Button2 />
 
-        <NewsList news={news} />
+        {loading ? (
+          <p className="font-semibold text-2xl">Loading...</p>
+        ) : (
+          <NewsList news={news} />
+        )}
       </section>
     </>
   );
