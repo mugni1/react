@@ -8,8 +8,10 @@ const root = document.getElementById("root");
 
 createRoot(root).render(
   <StrictMode>
+    {/* tambahkan tag BrowserRouter */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    {/* tambahkan tag BrowserRouter */}
   </StrictMode>
 );
