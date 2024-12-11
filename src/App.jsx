@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Button, { Button2 } from "./components/Button";
 import Welcome, { Welcome2 } from "./components/Welcome";
 import axios from "axios";
 import NewsList from "./components/NewsList";
+import Button from "./components/Button";
 
 function App() {
   // state count
@@ -40,15 +40,18 @@ function App() {
         {/* tanpa children  */}
         <Welcome2 text="Tanpa Children" />
 
+        {/* COUNT  */}
         <h1 className="font-bold text-xl">{count}</h1>
         <Button count={count} setCount={setCount} />
-        <Button2 />
+        {/* END COUNT  */}
 
+        {/* LIST BERITA  */}
         {loading ? (
           <p className="font-semibold text-2xl">Loading...</p>
         ) : (
           <NewsList news={news} />
         )}
+        {/* END LIST BERITA  */}
       </section>
     </>
   );
