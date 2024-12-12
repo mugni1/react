@@ -3,6 +3,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import AboutTeam from "./views/AboutTeam";
 import News from "./views/News";
+import NewsDetail from "./views/NewsDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="team" element={<AboutTeam />} />
         </Route>
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id/detail" element={<NewsDetail />} />
       </Routes>
       {/* GUNAKAN INI UNTUK ROUTER  */}
     </>
