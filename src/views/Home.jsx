@@ -1,7 +1,7 @@
 function Home() {
   return (
     <>
-      <h1>Ini Halaman Home</h1>
+      <h1 className="font-semibold text-xl">Ini Halaman Home</h1>
     </>
   );
 }
